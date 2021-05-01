@@ -22,6 +22,16 @@ function preencheContadores() {
 
 async function preencherTabela() {
   const response = await swapiGet("films/");
+  const tableData = response.data.results;
+  tableData.forEach( film => {
+    $('#filmsTable').append(`<tr>
+    <td>${film.title}</td>
+    <td>${film.release_date}</td>
+    <td>${film.director}</td>
+    <td>${film.episode_id}</td>
+    </tr>`)
+  })
+  
   
 
 }
